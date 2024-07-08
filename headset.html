@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/fone1.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Infinity Tech - Produtos</title>
+    <style>
+        /* Cart Sidebar */
+        .cart-sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #6d89a3;
+            border-radius: 10px;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .cart-sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #4d6481;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .cart-sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .cart-sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .thumbnail {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: 0 6px 7px rgba(23, 118, 227, 0.376);
+        }
+
+        .main-image {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 20px;
+            box-shadow: 0 6px 7px rgba(23, 118, 227, 0.376);
+        }
+
+        .price-container {
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            display: inline-block;
+            width: 400px;
+        }
+
+        .buy-button {
+            background-color: #163844;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .cart-button {
+            background-color: #276a81;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .nav{
+            color: #333
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="#" class="logo">Infi<span>ni</span>ty<span>te</span>ch</a>
+            <div class="nav">
+                <a href="#" onclick="toggleCart()"><i class='bx bx-cart-alt'></i> Carrinho</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#">Inicio</a></li>
+                <li class="nav-item"><a href="#">Produtos</a></li>
+                <li class="nav-item"><a href="#">Ajuda</a></li>
+                <li class="nav-item"><a href="login.php">Perfil</a></li>
+            </ul>
+            <div class="menu" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleCart()">&times;</a>
+        <h2>Carrinho de Compras</h2>
+        <div class="cart-items">
+            <!-- Itens do carrinho aqui -->
+        </div>
+    </div>
+    <br><br><br><br><br>
+    <main>
+        <div class="container mx-auto px-4 py-8">
+            <div class="breadcrumbs mb-4">
+                <a href="index.php" class="text-blue-500">Inicio</a> >
+                <a href="index.php" class="text-blue-500">Produtos</a> >
+                <span class="text-gray-500">Headset Gamer HyperX Cloud Stinger</span>
+            </div>
+            <div class="flex flex-col lg:flex-row">
+                <div class="flex-1">
+                    <img id="mainImage" src="https://m.media-amazon.com/images/I/71T7mTX-OjL._AC_UF894,1000_QL80_.jpg" alt="Produto Principal" class="mb-4 main-image">
+                    <div class="flex space-x-4">
+                        <img src="https://img.terabyteshop.com.br/produto/g/headset-gamer-hyperx-cloud-stinger-s-71-surround-35mm-ou-usb-50mm-black-hhss1s-aa-bkg_191370.jpg" alt="Thumbnail 1" class="thumbnail" onclick="changeImage(this)">
+                        <img src="https://img.terabyteshop.com.br/produto/g/headset-gamer-hyperx-cloud-stinger-s-71-surround-35mm-ou-usb-50mm-black-hhss1s-aa-bkg_191371.jpg" alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
+                        <img src="https://img.terabyteshop.com.br/produto/g/headset-gamer-hyperx-cloud-stinger-s-71-surround-35mm-ou-usb-50mm-black-hhss1s-aa-bkg_191373.jpg" alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
+                        <img src="https://img.terabyteshop.com.br/produto/g/headset-gamer-hyperx-cloud-stinger-s-71-surround-35mm-ou-usb-50mm-black-hhss1s-aa-bkg_191375.jpg" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="flex-1 lg:ml-8">
+                    <h1 class="text-2xl font-bold mb-4">Headset Gamer HyperX Cloud Stinger S, 7.1 Surround, Drivers 50mm, USB e P3, Black, HHSS1S-AA-BK/G</h1>
+                    <div class="mb-4">
+                        <span class="text-yellow-500"><i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i class='bx bxs-star-half'></i></span>
+                        <span>(30)</span>
+                    </div>
+                    <div class="price-container">
+                        <span class="text-blue-500 font-bold text-xl">R$ 2.663,10</span> <span class="line-through text-gray-500">R$ 3.222,71</span>
+                        <p class="text-sm text-gray-600">À vista no PIX com até 10% OFF</p>
+                    </div>
+                    <div class="mt-4">
+                        <button class="buy-button" onclick="addToCart()">Comprar</button>
+                        <button class="cart-button" onclick="addToCart()">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleCart() {
+            var cartSidebar = document.getElementById("cartSidebar");
+            if (cartSidebar.style.width === "250px") {
+                cartSidebar.style.width = "0";
+            } else {
+                cartSidebar.style.width = "250px";
+            }
+        }
+
+        function addToCart() {
+            alert('Item adicionado ao carrinho!');
+        }
+
+        function changeImage(element) {
+            var mainImage = document.getElementById('mainImage');
+            mainImage.src = element.src;
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const menu = document.querySelector('.menu');
+            const NavMenu = document.querySelector('.nav-menu');
+
+            menu.addEventListener('click', () => {
+                menu.classList.toggle('ativo');
+                NavMenu.classList.toggle('ativo');
+            });
+
+            const priceRange = document.getElementById('price-range');
+            const priceValue = document.getElementById('price-value');
+            const servicoItems = document.querySelectorAll('.servico-item');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            const filterProducts = () => {
+                const maxPrice = priceRange.value;
+                const activeCategory = document.querySelector('.filter-btn.active')?.dataset.category || 'all';
+
+                priceValue.textContent = maxPrice;
+
+                servicoItems.forEach(item => {
+                    const itemPrice = parseFloat(item.getAttribute('data-price'));
+                    const itemCategory = item.getAttribute('data-category');
+                    const priceMatch = itemPrice <= maxPrice;
+                    const categoryMatch = activeCategory === 'all' || itemCategory === activeCategory;
+
+                    if (priceMatch && categoryMatch) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            };
+
+            priceRange.addEventListener('input', filterProducts);
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    filterProducts();
+                });
+            });
+
+            // Set initial filter state
+            filterButtons[0].classList.add('active');
+            priceRange.dispatchEvent(new Event('input'));
+        });
+    </script>
+</body>
+
+</html>
